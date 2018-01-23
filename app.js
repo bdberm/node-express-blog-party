@@ -14,6 +14,6 @@ app.set('view engine', 'pug');
 app.set('views', 'views');
 
 // app.get("/",(req, res) => res.end('my first express request response cycle!'));
-app.get("/", (req, res) => res.render('hello'));
+app.get("/", (req, res) => res.render('hello',{subHeadVariable: "subhead from var"}));
 
 app.listen(3000, () => console.log('listening on port 3000'));
