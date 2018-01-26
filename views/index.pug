@@ -5,3 +5,6 @@ block content
   h3= subHeadVariable
   p.blurb Paragraph blurb
   section.separator This is a section
+  ul
+    each dog in dogArr
+      li= "Name: " +  dog.name +", Breed: " + dog.breed 
