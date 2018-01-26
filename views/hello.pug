@@ -1,9 +1,7 @@
-html
-  head
-    title hello express!
-  body
-    main
-      h1 Hello, Welcome to my first express template!
-      h3= subHeadVariable
-      p.blurb Here's a p tag of class blurb
-      .separator don't even need to declare divs
+extends layout.pug
+
+
+block content
+  h3= subHeadVariable
+  p.blurb Here's a p tag of class blurb
+  .separator don't even need to declare divs
