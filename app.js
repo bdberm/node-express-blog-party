@@ -1,4 +1,4 @@
-const process = require('dotenv').config();
+// const process = require('dotenv').config();
 
 const express = require('express');
 //logging
@@ -28,6 +28,10 @@ app.get("/", (req, res) => {
   const dogArr = JSON.parse(dogs);
 
   res.render('index',{subHeadVariable: "subhead from var", dogArr: dogArr});
+});
+
+app.get("/:dogId", (req, res) => {
+  res.end(req.params.dogId);
 });
 
 
