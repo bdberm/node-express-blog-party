@@ -9,6 +9,25 @@ const fs = require('fs');
 
 const app = express();
 
+const dogs = {
+  1: {"id": 1,
+    "name": "Lassie",
+  "breed": "Collie",
+  "owner": "Selena"},
+  2: {"id": 2,
+  "name": "Alfred",
+  "breed": "Basset Hound",
+  "owner": "Terry"},
+  3: {"id": 3,
+  "name": "Homer",
+  "breed": "Corgi",
+  "owner": "Terry"},
+  4: {"id": 4,
+  "name": "Felicia",
+  "breed": "Boston Terrier",
+  "owner": "Doug"}
+};
+
 
 
 
@@ -24,14 +43,16 @@ app.set('views', 'views');
 
 // app.get("/", (req, res) => res.render('index',{subHeadVariable: "subhead from var"}));
 app.get("/", (req, res) => {
-  const dogs = fs.readFileSync('db/dog_seeds.json', 'utf-8');
-  const dogArr = JSON.parse(dogs);
+
+  const dogArr = Object.keys(dogs).map((key) => dogs[key]);
 
   res.render('index',{subHeadVariable: "subhead from var", dogArr: dogArr});
 });
 
 app.get("/:dogId", (req, res) => {
-  res.end(req.params.dogId);
+  const dog = dogs[req.params.dogId];
+  res.render('show',{dog: dog});
+  // res.end(req.params.dogId);
 });
 
 
