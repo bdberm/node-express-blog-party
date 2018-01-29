@@ -52,7 +52,6 @@ app.get("/", (req, res) => {
 app.get("/:dogId", (req, res) => {
   const dog = dogs[req.params.dogId];
   res.render('show',{dog: dog});
-  // res.end(req.params.dogId);
 });
 
 

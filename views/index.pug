@@ -7,4 +7,5 @@ block content
   section.separator This is a section
   ul
     each dog in dogArr
-      li= "Name: " +  dog.name +", Breed: " + dog.breed 
+      li= "Name: " +  dog.name +", Breed: " + dog.breed
+      a(href='/' + dog.id) View Detail
