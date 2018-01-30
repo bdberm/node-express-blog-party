@@ -7,7 +7,16 @@ const morgan = require('morgan');
 //File System
 const fs = require('fs');
 
+//random ID generator
+const uuidv4 = require('uuid/v4');
+
+// Parse Create and Edit Forms
+const bodyParser = require('body-parser');
+
 const app = express();
+
+// create application/x-www-form-urlencoded parser
+const urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 // const dogs = {
 //   1: {"id": 1,
@@ -51,6 +60,10 @@ app.get("/", (req, res) => {
   res.render('index',{subHeadVariable: "subhead from var", dogArr: dogArr});
 });
 
+app.get("/new", (req, res) => {
+  res.render('new');
+});
+
 app.get("/:dogId", (req, res) => {
   // const dog = dogs[req.params.dogId];
   const dogs = JSON.parse(fs.readFileSync('./db/dog_seeds.json', 'utf-8'));
@@ -62,6 +75,25 @@ app.get("/:dogId", (req, res) => {
     res.status(404).end("No such dog");
   }
 });
+
+app.post("/", urlencodedParser, (req, res) => {
+  const dogs = JSON.parse(fs.readFileSync('./db/dog_seeds.json', 'utf-8'));
+  const newId = uuidv4();
+  const newDog = {
+    id: newId,
+    name: req.body.name || 'unknown',
+    breed: req.body.breed || 'unknown',
+    owner: req.body.owner || 'unknown'
+  };
+
+  dogs[newId] = newDog;
+
+  fs.writeFileSync('./db/dog_seeds.json', JSON.stringify(dogs, null, 2));
+  res.redirect(303, "/");
+});
+
+
+
 
 
 app.listen(3000, () => console.log('listening on port 3000'));
