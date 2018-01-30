@@ -1,22 +1,26 @@
-[
-  {
+{
+  "1": {
+    "id": 1,
     "name": "Lassie",
     "breed": "Collie",
     "owner": "Selena"
   },
-  {
+  "2": {
+    "id": 2,
     "name": "Alfred",
     "breed": "Basset Hound",
     "owner": "Terry"
   },
-  {
+  "3": {
+    "id": 3,
     "name": "Homer",
     "breed": "Corgi",
     "owner": "Terry"
   },
-  {
+  "4": {
+    "id": 4,
     "name": "Felicia",
     "breed": "Boston Terrier",
     "owner": "Doug"
   }
-]
+}
