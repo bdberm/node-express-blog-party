@@ -5,12 +5,6 @@
     "breed": "Collie",
     "owner": "Selena!!"
   },
-  "2": {
-    "id": 2,
-    "name": "Alfred",
-    "breed": "Basset Hound",
-    "owner": "Terry"
-  },
   "4": {
     "id": 4,
     "name": "Felicia!",
@@ -22,5 +16,17 @@
     "name": "Dudley",
     "breed": "Basset",
     "owner": "Benjamin"
+  },
+  "ea2193a7-5829-4ffb-af67-ba22e1d45a46": {
+    "id": "ea2193a7-5829-4ffb-af67-ba22e1d45a46",
+    "name": "Bertha",
+    "breed": "Great Dante",
+    "owner": "Christine"
+  },
+  "8e3984e6-5367-4dab-99b0-a686e4e35319": {
+    "id": "8e3984e6-5367-4dab-99b0-a686e4e35319",
+    "name": "Sally",
+    "breed": "Ben",
+    "owner": "Terrier"
   }
 }
