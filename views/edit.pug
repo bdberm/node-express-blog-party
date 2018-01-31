@@ -3,7 +3,7 @@ extends layout.pug
 include mixins/_dogForm
 
 block content
-  h1 Add New Dog!
-  +dogForm()
+  h1="Edit " + dog.name + "!"
+  +dogForm(dog, "/" + dog.id, "Update Dog!")
   .links
     a(href="/") Return to Dogs Index

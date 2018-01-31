@@ -1,11 +1,10 @@
-mixin dogForm(d = {}, action = "/")
+mixin dogForm(d = {}, action = "/", actionStr = "Add Dog!")
 
-  form(method="POST", action=action)
+  form.dog-form(method="POST", action=action)
     label(for="name") Name
     input(type="text", id="name", name="name", value=d.name, placeholder="Dog's Name")
     label(for="breed") Breed
     input(type="text" id="breed", name="breed",  value=d.breed, placeholder="Dog's Breed")
     label(for="owner") Owner
     input(type="text" id="owner", name="owner",  value=d.owner, placeholder="Dog's Owner")
-    input(type="submit")
-  a(href="/") Return to Dogs Index
+    input(type="submit" value=actionStr)

@@ -76,6 +76,18 @@ app.get("/:dogId", (req, res) => {
   }
 });
 
+app.get("/:dogId/edit", (req, res) => {
+  const dogs = JSON.parse(fs.readFileSync('./db/dog_seeds.json', 'utf-8'));
+  const dog = dogs[req.params.dogId];
+
+  if (dog) {
+    console.log(dog);
+    res.render("edit", {dog: dog});
+  } else {
+    res.status(404).end("No such dog");
+  }
+});
+
 app.post("/", urlencodedParser, (req, res) => {
   const dogs = JSON.parse(fs.readFileSync('./db/dog_seeds.json', 'utf-8'));
   const newId = uuidv4();

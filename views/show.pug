@@ -3,5 +3,8 @@ extends layout.pug
 block content
   h1= dog.name
   ul
-    li="Breed: " + dog.breed
-    li="Owner: " + dog.owner
+    li.dog-info-item="Breed: " + dog.breed
+    li.dog-info-item="Owner: " + dog.owner
+  ul.links
+    a(href="/") Back To Index!
+    a(href="/" + dog.id + "/edit") Edit Dog!

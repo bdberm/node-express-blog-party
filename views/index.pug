@@ -2,10 +2,10 @@ extends layout.pug
 
 block content
   h1 Index View!
-  h3= subHeadVariable
-  p.blurb Paragraph blurb
-  section.separator This is a section
   ul
     each dog in dogArr
-      li= "Name: " +  dog.name +", Breed: " + dog.breed
-      a(href='/' + dog.id) View Detail
+      .dog-index-item
+        li= "Name: " +  dog.name
+        a.view-detail(href='/' + dog.id) View Detail
+  .links
+    a(href="/new") Add New Dog

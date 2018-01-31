@@ -5,3 +5,59 @@ body {
 h1 {
   font-size: 24px;
 }
+
+.dog-index-item {
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+  margin-top: 10px;
+  width: 200px;
+}
+
+a {
+  text-decoration: underline;
+  color: blue;
+
+}
+
+.dog-info-item {
+  margin-top: 10px;
+}
+
+.links {
+  display: flex;
+  margin-top: 10px;
+  flex-direction: row;
+}
+
+.dog-form {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  border: 1px gray solid;
+  padding-top: 10px;
+  padding-left: 5px;
+}
+
+input {
+  border: 1px gray solid;
+  box-sizing: border-box;
+  margin: 10px 5px;
+  padding-left: 3px;
+}
+
+input[type=submit] {
+  width: 150px;
+  text-align: center;
+  background: blue;
+  color: white;
+  font-weight: bold;
+}
+
+.links > a {
+  margin-left: 10px;
+}
+
+.links>a:first-of-type {
+  margin-left: 0;
+}
