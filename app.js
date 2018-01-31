@@ -21,27 +21,6 @@ const app = express();
 // create application/x-www-form-urlencoded parser
 const urlencodedParser = bodyParser.urlencoded({ extended: false });
 
-// const dogs = {
-//   1: {"id": 1,
-//     "name": "Lassie",
-//   "breed": "Collie",
-//   "owner": "Selena"},
-//   2: {"id": 2,
-//   "name": "Alfred",
-//   "breed": "Basset Hound",
-//   "owner": "Terry"},
-//   3: {"id": 3,
-//   "name": "Homer",
-//   "breed": "Corgi",
-//   "owner": "Terry"},
-//   4: {"id": 4,
-//   "name": "Felicia",
-//   "breed": "Boston Terrier",
-//   "owner": "Doug"}
-// };
-
-
-
 
 // LOGGING
 app.use(morgan('combined'));
@@ -120,6 +99,12 @@ app.patch("/:dogId", urlencodedParser, (req, res) => {
   res.redirect(303, "/" + req.params.dogId);
 });
 
+app.delete("/:dogId", urlencodedParser, (req, res) => {
+  const dogs = JSON.parse(fs.readFileSync('./db/dog_seeds.json', 'utf-8'));
+  delete dogs[req.params.dogId];
+  fs.writeFileSync('./db/dog_seeds.json', JSON.stringify(dogs, null, 2));
+  res.redirect(303, "/");
+});
 
 
 

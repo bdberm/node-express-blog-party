@@ -11,7 +11,7 @@ h1 {
   flex-direction: row;
   justify-content:space-between;
   margin-top: 10px;
-  width: 200px;
+  width: 300px;
 }
 
 a {
@@ -60,4 +60,20 @@ input[type=submit] {
 
 .links>a:first-of-type {
   margin-left: 0;
+}
+
+.dog-index-item > li, a, form {
+  width: 32%;
+}
+
+.delete-dog > input {
+  background: white;
+  color: red;
+  margin: 0;
+  border: 0;
+  padding: 0;
+}
+
+.delete-dog > input:hover {
+  text-decoration: underline;
 }

@@ -1,11 +1,13 @@
 extends layout.pug
 
 block content
-  h1 Index View!
+  h1 Doggos!
   ul
     each dog in dogArr
       .dog-index-item
         li= "Name: " +  dog.name
         a.view-detail(href='/' + dog.id) View Detail
+        form.delete-dog(method="POST", action="/" + dog.id+"?_method=DELETE")
+          input(type="submit" value="Delete Dog")
   .links
     a(href="/new") Add New Dog
