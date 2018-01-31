@@ -13,6 +13,9 @@ const uuidv4 = require('uuid/v4');
 // Parse Create and Edit Forms
 const bodyParser = require('body-parser');
 
+//For Patch and Delete Requests
+const methodOverride = require('method-override');
+
 const app = express();
 
 // create application/x-www-form-urlencoded parser
@@ -45,6 +48,9 @@ app.use(morgan('combined'));
 
 // For servinc static files like CSS and JS
 app.use(express.static('assets'));
+
+//Method override with query value
+app.use(methodOverride('_method'));
 
 
 app.set('view engine', 'pug');
@@ -102,6 +108,16 @@ app.post("/", urlencodedParser, (req, res) => {
 
   fs.writeFileSync('./db/dog_seeds.json', JSON.stringify(dogs, null, 2));
   res.redirect(303, "/");
+});
+
+app.patch("/:dogId", urlencodedParser, (req, res) => {
+  const dogs = JSON.parse(fs.readFileSync('./db/dog_seeds.json', 'utf-8'));
+  const dog = dogs[req.params.dogId];
+  const {name, breed, owner} = req.body;
+  const updatedDog = Object.assign({}, dog, {name, breed, owner} );
+  dogs[req.params.dogId] = updatedDog;
+  fs.writeFileSync('./db/dog_seeds.json', JSON.stringify(dogs, null, 2));
+  res.redirect(303, "/" + req.params.dogId);
 });
 
 

@@ -4,6 +4,6 @@ include mixins/_dogForm
 
 block content
   h1="Edit " + dog.name + "!"
-  +dogForm(dog, "/" + dog.id, "Update Dog!")
+  +dogForm(dog, "/" + dog.id+"?_method=PATCH", "Update Dog!")
   .links
     a(href="/") Return to Dogs Index
